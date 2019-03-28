@@ -13,7 +13,10 @@ class UsagesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('usages', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('usage_name');
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class UsagesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('usages');
     }
 }

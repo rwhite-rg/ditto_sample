@@ -13,6 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::resource('artists', 'ArtistController');
+Route::resource('dp-contracts', 'DpContractController');
+Route::resource('usages', 'UsageController');
+Route::resource('music-contracts', 'MusicContractController');

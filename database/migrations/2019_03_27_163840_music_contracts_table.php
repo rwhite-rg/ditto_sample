@@ -13,7 +13,14 @@ class MusicContractsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('music_contracts', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('artist_id')->unsigned();
+            $table->foreign('artist_id')->references('id')->on('artists');
+            $table->string('song_title');
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
+        });
     }
 
     /**
@@ -23,6 +30,6 @@ class MusicContractsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('music_contracts');
     }
 }
