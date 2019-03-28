@@ -13,7 +13,10 @@ class DpContractsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('dp_contracts', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('partner_name');
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class DpContractsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('dp_contracts');
     }
 }
